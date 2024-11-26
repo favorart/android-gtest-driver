@@ -29,10 +29,10 @@ jobs:
         -DCMAKE_CXX_COMPILER=g++
         -DCMAKE_C_COMPILER=gcc
         -DCMAKE_BUILD_TYPE=Release
-        -S ${{ github.workspace }}
+        -S ${{ github.workspace }}/TestCpp/app
 
     - name: Build
-      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Release
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
